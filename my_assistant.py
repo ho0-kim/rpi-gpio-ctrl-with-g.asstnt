@@ -29,6 +29,7 @@ class thread_time_check(threading.Thread):
 				#logging.debug("q.get() : got schedule time & flag : {}".format(self.flag))
 			except queue.Empty as e:
 				#logging.debug("q.get() : didn't get schedule time & flag : {}".format(self.flag))
+				pass
 			if flag and now.hour == schedule.hour and now.minute == schedule.minute:
 				#logging.debug("######## time is done !!")
 				flag = False
