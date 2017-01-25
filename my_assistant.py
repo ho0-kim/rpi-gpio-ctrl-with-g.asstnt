@@ -8,12 +8,21 @@ import datetime
 
 import logging
 
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(10, GPIO.OUT)
+
 q = queue.Queue()
 
 log = logging.getLogger()
 log.addHandler(logging.StreamHandler())
 log.setLevel(logging.DEBUG)
 #logging.getLogger("flask_assistant").setLevel(logging.DEBUG)
+
+def gpio_control():
+	GPIO.output(10, GPIO.HIGH)
+	return
 
 class thread_time_check(threading.Thread):
 	def run(self):
